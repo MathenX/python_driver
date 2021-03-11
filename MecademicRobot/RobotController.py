@@ -925,6 +925,21 @@ class RobotController:
         cmd = self._build_command(raw_cmd,[x,y,z,alpha,beta,gamma])
         return self.exchange_msg(cmd)
 
+    def StartProgram(self, N):
+        """Starts program N that is saved to the robot
+
+        N : program number
+
+        Returns
+        -------
+        response: string
+            Returns the decrypted response from the Mecademic Robot.
+
+        """
+
+        raw_cmd = 'StartProgram'
+        cmd = self._build_command(raw_cmd, [N])
+        return self.exchange_msg(cmd)
     def GetStatusRobot(self):
         """Retrieves the robot status of the Mecademic Robot.
 
